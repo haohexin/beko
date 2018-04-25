@@ -75,6 +75,7 @@ class MaintainCategoryController extends Controller
 
             $grid->id('ID')->sortable();
             $grid->column('title', '类型')->editable();
+            $grid->column('cycle', '周期/小时')->editable();
 
             $grid->created_at();
             $grid->updated_at();
@@ -92,6 +93,7 @@ class MaintainCategoryController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title', '类型');
+            $form->number('cycle', '周期/小时');
         });
     }
 }
