@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Encore\Admin\Traits\ModelTree;
+use Encore\Admin\Traits\AdminBuilder;
 
-class Address extends Model
+class
+Address extends Model
 {
-    //
+    use ModelTree, AdminBuilder;
 }

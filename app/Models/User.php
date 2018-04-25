@@ -26,4 +26,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function category()
+    {
+        return $this->hasOne(UserCategory::class,'id','user_category');
+    }
+
+    public function district()
+    {
+        return $this->hasOne(Address::class,'id','district_id');
+    }
+
+    public function province()
+    {
+        return $this->hasOne(Address::class,'id','province_id');
+    }
+
+    public function city()
+    {
+        return $this->hasOne(Address::class,'id','city_id');
+    }
 }
