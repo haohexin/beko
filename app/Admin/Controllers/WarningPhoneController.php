@@ -82,7 +82,7 @@ class WarningPhoneController extends Controller
 
             $grid->id('ID')->sortable();
             $grid->column('phone', '手机号码');
-            $grid->column('device.client', '设备');
+            $grid->column('device.client', '设备')->label();
             $grid->created_at();
             $grid->updated_at();
         });

@@ -78,7 +78,24 @@ class DeviceCategoryController extends Controller
 
             $grid->id('ID')->sortable();
             $grid->column('title', '类型')->editable();
+            $grid->curves('曲线包含项')->display(function ($curves) {
 
+                $curves = array_map(function ($curve) {
+                    $field = DeviceField::find($curve['field_id']);
+                    return "<span class='label label-success'>{$field->title}</span>";
+                }, $curves);
+
+                return join('&nbsp;', $curves);
+            });
+            $grid->arguments('参数包含项')->display(function ($arguments) {
+
+                $arguments = array_map(function ($argument) {
+                    $field = DeviceField::find($argument['field_id']);
+                    return "<span class='label label-success'>{$field->title}</span>";
+                }, $arguments);
+
+                return join('&nbsp;', $arguments);
+            });
             $grid->created_at();
             $grid->updated_at();
         });
