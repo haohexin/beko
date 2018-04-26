@@ -35,6 +35,7 @@ class DeviceStatusController extends Controller
      * Edit interface.
      *
      * @param $id
+     *
      * @return Content
      */
     public function edit($id)
@@ -75,7 +76,7 @@ class DeviceStatusController extends Controller
 
             $grid->id('ID')->sortable();
             $grid->column('title', '状态')->editable();
-
+            $grid->column('status_code', '状态码')->editable();
             $grid->created_at();
             $grid->updated_at();
         });
@@ -92,6 +93,7 @@ class DeviceStatusController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title', '状态');
+            $form->text('status_code', '状态码');
             $form->image('path', '图片');
         });
     }
