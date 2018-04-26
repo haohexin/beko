@@ -22,6 +22,7 @@ Route::group([
     $router->resource('deviceCategoryArguments', DeviceCategoryArgumentController::class);
     $router->resource('deviceModels', DeviceModelController::class);
     $router->resource('deviceStatus', DeviceStatusController::class);
+    $router->resource('controlModes', ControlModeController::class);
 
     $router->resource('warningCategories', WarningCategoryController::class);
     $router->resource('warningPhones', WarningPhoneController::class);
