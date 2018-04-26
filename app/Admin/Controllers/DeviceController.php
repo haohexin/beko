@@ -91,17 +91,17 @@ class DeviceController extends Controller
         return Admin::grid(Device::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('client','客户名称');
-            $grid->column('category.title','类型')->label();
-            $grid->column('model.title','类型')->label();
-            $grid->column('number','编号');
-            $grid->column('delivery_date','出厂时间');
-            $grid->column('work_date','开机时间');
-            $grid->column('industry.title','行业')->label();
+            $grid->column('client', '客户名称');
+            $grid->column('category.title', '类型')->label();
+            $grid->column('model.title', '类型')->label();
+            $grid->column('number', '编号');
+            $grid->column('delivery_date', '出厂时间');
+            $grid->column('work_date', '开机时间');
+            $grid->column('industry.title', '行业')->label();
             $grid->column('district.title', '一级区域')->sortable()->label();
             $grid->column('province.title', '二级区域')->sortable()->label();
             $grid->column('city.title', '三级区域')->sortable()->label();
-            $grid->column('status.title','状态')->label();
+            $grid->column('status.title', '状态')->label();
             $grid->is_running('运行中')->display(function ($is_running) {
                 return $is_running == '1' ? "<i class='fa fa-check' style='color:green'></i>" : "<i class='fa fa-close' style='color:red'></i>";
             });

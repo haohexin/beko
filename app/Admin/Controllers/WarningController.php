@@ -20,7 +20,7 @@ class WarningController extends Controller
     public function __construct(Device $device, WarningCategory $warningCategory)
     {
         $this->devices = $device->pluck('client', 'id');
-        $this->warningCategories = $warningCategory->pluck('title','id');
+        $this->warningCategories = $warningCategory->pluck('title', 'id');
     }
 
 
@@ -44,6 +44,7 @@ class WarningController extends Controller
      * Edit interface.
      *
      * @param $id
+     *
      * @return Content
      */
     public function edit($id)
@@ -83,8 +84,8 @@ class WarningController extends Controller
         return Admin::grid(Warning::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('device.client','设备')->label();
-            $grid->column('category.title','报警类型')->label();
+            $grid->column('device.client', '设备')->label();
+            $grid->column('category.title', '报警类型')->label();
             $grid->all_clear('清除?')->display(function ($all_clear) {
                 return $all_clear == '1' ? "<i class='fa fa-check' style='color:green'></i>" : "<i class='fa fa-close' style='color:red'></i>";
             });
@@ -106,7 +107,7 @@ class WarningController extends Controller
             $form->display('id', 'ID');
             $form->select('device_id', '设备')->options($this->devices);
             $form->select('category_id', '报警类型')->options($this->warningCategories);
-            $form->switch('all_clear','清除?');
+            $form->switch('all_clear', '清除?');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });

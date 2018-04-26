@@ -20,7 +20,7 @@ class MaintainController extends Controller
     public function __construct(Device $device, MaintainCategory $maintainCategory)
     {
         $this->devices = $device->pluck('client', 'id');
-        $this->maintainCategories = $maintainCategory->pluck('title','id');
+        $this->maintainCategories = $maintainCategory->pluck('title', 'id');
     }
 
     /**
@@ -43,6 +43,7 @@ class MaintainController extends Controller
      * Edit interface.
      *
      * @param $id
+     *
      * @return Content
      */
     public function edit($id)
@@ -82,9 +83,9 @@ class MaintainController extends Controller
         return Admin::grid(Maintain::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('device.client','设备')->label();
-            $grid->column('category.title','保养类型')->label();
-            $grid->column('early_time','提示天数')->label();
+            $grid->column('device.client', '设备')->label();
+            $grid->column('category.title', '保养类型')->label();
+            $grid->column('early_time', '提示天数')->label();
             $grid->model()->orderBy('id', 'desc');
             $grid->created_at('创建于');
             $grid->updated_at('修改于');

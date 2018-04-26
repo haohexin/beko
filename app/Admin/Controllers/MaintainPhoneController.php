@@ -41,6 +41,7 @@ class MaintainPhoneController extends Controller
      * Edit interface.
      *
      * @param $id
+     *
      * @return Content
      */
     public function edit($id)
@@ -80,8 +81,8 @@ class MaintainPhoneController extends Controller
         return Admin::grid(MaintainPhone::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('phone','手机号码');
-            $grid->column('device.client','设备');
+            $grid->column('phone', '手机号码');
+            $grid->column('device.client', '设备');
             $grid->created_at();
             $grid->updated_at();
         });
@@ -98,7 +99,7 @@ class MaintainPhoneController extends Controller
 
             $form->display('id', 'ID');
             $form->select('device_id', '设备')->options($this->devices);
-            $form->mobile('phone','手机号码');
+            $form->mobile('phone', '手机号码');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');

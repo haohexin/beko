@@ -43,6 +43,7 @@ class DeviceCategoryArgumentController extends Controller
      * Edit interface.
      *
      * @param $id
+     *
      * @return Content
      */
     public function edit($id)
@@ -82,8 +83,8 @@ class DeviceCategoryArgumentController extends Controller
         return Admin::grid(DeviceCategoryArgument::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('category.title','设备类型')->sortable();
-            $grid->column('field.title','主要字段')->sortable();
+            $grid->column('category.title', '设备类型')->sortable();
+            $grid->column('field.title', '主要字段')->sortable();
 
             $grid->model()->orderBy('id', 'desc');
             $grid->created_at('创建于');

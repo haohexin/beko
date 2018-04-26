@@ -13,6 +13,6 @@ class Warning extends Model
 
     public function category()
     {
-        return $this->belongsTo(WarningCategory::class,'category_id');
+        return $this->belongsTo(WarningCategory::class, 'category_id');
     }
 }

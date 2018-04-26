@@ -83,8 +83,8 @@ class DeviceCategoryCurveController extends Controller
         return Admin::grid(DeviceCategoryCurve::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('category.title','设备类型')->sortable();
-            $grid->column('field.title','主要字段')->sortable();
+            $grid->column('category.title', '设备类型')->sortable();
+            $grid->column('field.title', '主要字段')->sortable();
 
             $grid->model()->orderBy('id', 'desc');
             $grid->created_at('创建于');

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Maintain extends Model
 {
-    protected $fillable = ['category_id','early_time'];
+    protected $fillable = ['category_id', 'early_time'];
 
     public function device()
     {
@@ -15,6 +15,6 @@ class Maintain extends Model
 
     public function category()
     {
-        return $this->belongsTo(MaintainCategory::class,'category_id');
+        return $this->belongsTo(MaintainCategory::class, 'category_id');
     }
 }

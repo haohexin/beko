@@ -35,6 +35,7 @@ class ServiceDataController extends Controller
      * Edit interface.
      *
      * @param $id
+     *
      * @return Content
      */
     public function edit($id)

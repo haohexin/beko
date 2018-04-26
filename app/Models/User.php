@@ -29,21 +29,21 @@ class User extends Authenticatable
 
     public function category()
     {
-        return $this->hasOne(UserCategory::class,'id','user_category');
+        return $this->hasOne(UserCategory::class, 'id', 'user_category');
     }
 
     public function district()
     {
-        return $this->hasOne(Address::class,'id','district_id');
+        return $this->hasOne(Address::class, 'id', 'district_id');
     }
 
     public function province()
     {
-        return $this->hasOne(Address::class,'id','province_id');
+        return $this->hasOne(Address::class, 'id', 'province_id');
     }
 
     public function city()
     {
-        return $this->hasOne(Address::class,'id','city_id');
+        return $this->hasOne(Address::class, 'id', 'city_id');
     }
 }

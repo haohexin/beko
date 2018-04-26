@@ -35,6 +35,7 @@ class DeviceFieldController extends Controller
      * Edit interface.
      *
      * @param $id
+     *
      * @return Content
      */
     public function edit($id)
@@ -74,8 +75,8 @@ class DeviceFieldController extends Controller
         return Admin::grid(DeviceField::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('title','名称')->editable();
-            $grid->column('field','对应字段')->editable();
+            $grid->column('title', '名称')->editable();
+            $grid->column('field', '对应字段')->editable();
 
             $grid->created_at();
             $grid->updated_at();
@@ -92,8 +93,8 @@ class DeviceFieldController extends Controller
         return Admin::form(DeviceField::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('title','名称');
-            $form->text('field','对应字段');
+            $form->text('title', '名称');
+            $form->text('field', '对应字段');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');

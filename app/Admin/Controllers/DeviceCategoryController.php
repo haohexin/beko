@@ -4,6 +4,8 @@ namespace App\Admin\Controllers;
 
 use App\Models\DeviceCategory;
 
+use App\Models\DeviceCategoryCurve;
+use App\Models\DeviceField;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -35,6 +37,7 @@ class DeviceCategoryController extends Controller
      * Edit interface.
      *
      * @param $id
+     *
      * @return Content
      */
     public function edit($id)
@@ -92,6 +95,13 @@ class DeviceCategoryController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title', '类型');
+            $fields = DeviceField::get()->pluck('title', 'id');
+            $form->hasMany('curves', '曲线包含项', function ($form) use ($fields) {
+                $form->select('field_id', '字段')->options($fields);
+            });
+            $form->hasMany('arguments', '参数包含项', function ($form) use ($fields) {
+                $form->select('field_id', '字段')->options($fields);
+            });
         });
     }
 }
