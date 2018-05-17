@@ -2,10 +2,10 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\DeviceField;
-
 use Encore\Admin\Form;
+
 use Encore\Admin\Grid;
+use App\Models\DeviceField;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
@@ -77,7 +77,7 @@ class DeviceFieldController extends Controller
             $grid->id('ID')->sortable();
             $grid->column('title', '名称')->editable();
             $grid->column('field', '对应字段')->editable();
-
+            $grid->column('unit', '单位')->editable();
             $grid->created_at();
             $grid->updated_at();
         });
@@ -95,6 +95,7 @@ class DeviceFieldController extends Controller
             $form->display('id', 'ID');
             $form->text('title', '名称');
             $form->text('field', '对应字段');
+            $form->text('unit', '单位');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
