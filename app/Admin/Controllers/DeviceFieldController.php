@@ -78,6 +78,8 @@ class DeviceFieldController extends Controller
             $grid->column('title', '名称')->editable();
             $grid->column('field', '对应字段')->editable();
             $grid->column('unit', '单位')->editable();
+            $grid->column('max', '最大值')->editable();
+            $grid->column('min', '最小值')->editable();
             $grid->created_at();
             $grid->updated_at();
         });
@@ -96,6 +98,8 @@ class DeviceFieldController extends Controller
             $form->text('title', '名称');
             $form->text('field', '对应字段');
             $form->text('unit', '单位');
+            $form->number('max','最大值');
+            $form->number('min','最小值');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
