@@ -119,6 +119,8 @@ class DeviceCategoryController extends Controller
             $fields = DeviceField::get()->pluck('title', 'id');
             $form->hasMany('curves', '曲线包含项', function ($form) use ($fields) {
                 $form->select('field_id', '字段')->options($fields);
+                $form->number('bit', '开始位');
+                $form->number('length', '长度');
             });
             $form->hasMany('arguments', '参数包含项', function ($form) use ($fields) {
                 $form->select('field_id', '字段')->options($fields);

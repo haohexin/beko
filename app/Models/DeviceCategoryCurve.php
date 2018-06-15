@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DeviceCategoryCurve extends Model
 {
-    protected $fillable = ['field_id', 'category_id'];
+    protected $fillable = ['field_id', 'category_id', 'bit', 'length'];
 
     public function category()
     {
