@@ -78,6 +78,8 @@ class DeviceCategoryController extends Controller
 
             $grid->id('ID')->sortable();
             $grid->column('title', '类型')->editable();
+            $grid->column('number', '类型标志')->editable();
+            $grid->column('length', '位长度')->editable();
             $grid->curves('曲线包含项')->display(function ($curves) {
 
                 $curves = array_map(function ($curve) {
@@ -112,6 +114,8 @@ class DeviceCategoryController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title', '类型');
+            $form->text('number', '类型标志');
+            $form->number('length', '位长度');
             $fields = DeviceField::get()->pluck('title', 'id');
             $form->hasMany('curves', '曲线包含项', function ($form) use ($fields) {
                 $form->select('field_id', '字段')->options($fields);
