@@ -68,11 +68,11 @@
     };
     $.ajax({
         type: "post",
-        url: "http://www.bekomanager.com/?r=runtime/get-runtime-data",
+        url: "http://106.14.34.94/?r=runtime/get-runtime-data",
         data: {
-            start_time: 1527634800,
-            end_time: 1527644638,
-            device_id: 91
+            start_time: 1529362800,
+            end_time: 1529808884,
+            device_id: 87
         },
         cache: false,
         async: false,
