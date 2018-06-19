@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>吸干机改版图表</title>
+    <title>冷干机改版图表</title>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
 </head>
