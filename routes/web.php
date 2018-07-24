@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('chart');
+    return view('welcome');
 });
+
+Route::view('chart', 'chart');

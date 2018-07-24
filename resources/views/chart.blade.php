@@ -10,14 +10,15 @@
 
 <body>
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<div id="main" style="width: 100%;height:400px;"></div>
+<div id="main" style="width: 400px;height:400px;"></div>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
-    var colors = ['#5793f3', '#d14a61', '#675bba', 'red', 'blue', 'green'];
+    var colors = [];
     // 指定图表的配置项和数据
     var option = {
         color: colors,
+        left: 'center',
 
         tooltip: {
             trigger: 'axis', //坐标轴触发
@@ -66,6 +67,8 @@
         yAxis: [],
         series: []
     };
+
+
     $.ajax({
         type: "post",
         url: "http://106.14.34.94/?r=runtime/get-runtime-data",
@@ -77,10 +80,11 @@
         cache: false,
         async: false,
         dataType: 'json',
-        success: function(data) {
+        success: function (data) {
             setData(data);
         },
-        error: function(data) {}
+        error: function (data) {
+        }
     });
 
     function setData(data) {
@@ -97,6 +101,11 @@
         option.xAxis[0].data = xais;
         // yaxis
         var yais = data.yAxis;
+        // color
+        colors = data.color;
+        option.color = data.color;
+        //right_per
+        option.grid.right = data.right_per;
         for (var i = 0; i < yais.length; i++) {
             var item = {};
             item.type = 'value';
@@ -116,6 +125,13 @@
             option.yAxis.push(item);
         }
         myChart.setOption(option);
+
+        //用于使chart自适应高度和宽度
+        window.onresize = function () {
+            //重置容器高宽
+            resizeWorldMapContainer();
+            myChart.resize();
+        };
     }
 </script>
 </body>
